@@ -106,7 +106,7 @@ def open_support(event):
     top_line.pack()
     top_line.place(x=0, y=90)
 
-    # -------------------
+    # --------------------------------------
     # Support License
     # Underline license
     underline_license = Canvas(interface_support, width=75, height=1, bg="white")
@@ -119,21 +119,32 @@ def open_support(event):
     label_copyright=Label(interface_support, bg="#2A0A1B", fg="white", font="Helvetica 11 italic", text="Copyright © 2019 Juan Miguel Segura Fernandez and Alejandro Mallén Gómez.")
     # Label_all_licese.
     label_copyright.pack()
-    label_all_licese=Label(interface_support, bg="#2A0A1B", fg="white", font="Helvetica 11", justify=LEFT, text="This program is free software: you can redistribute it and/or modify.\nIt under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the\nLicense, or at your option, any later version.\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY\nwithout even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU \nGeneral Public License for more details. You should have received a copy of the GNU General Public License along with this\n program. If not, see <http://www.gnu.org/licenses/>.")
+    label_all_licese=Label(interface_support, bg="#2A0A1B", fg="white", font="Helvetica 11", justify=LEFT, text="This program is free software: you can redistribute it and/or modify.\nIt under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the\nLicense, or at your option, any later version.\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY\nwithout even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU \nGeneral Public License for more details. You should have received a copy of the GNU General Public License along with this\nprogram.\nIf not, see")
     label_all_licese.pack()
 
+    def goto_pageweb_license(event):
+        webbrowser.open_new_tab("https://www.gnu.org/licenses/gpl-3.0.en.html")
+    # Label for see license ( go to license page web )
+    label_see_license=Label(interface_support, text="<http://www.gnu.org/licenses/>", bg="#2A0A1B", fg="white", font="Helvetica 11 underline", cursor="hand2")
+    label_see_license.pack()
+    label_see_license.bind("<Button-1>", goto_pageweb_license)
+
     # Hide all labels and buttons with grid
-    label_clampy_interface_support.forget()
-    label_copyright.forget()
-    label_all_licese.forget()
+    label_clampy_interface_support.place_forget()
+    label_copyright.place_forget()
+    label_all_licese.place_forget()
+    label_see_license.place_forget()
 
     # Function for support_license
     def support_license(event):
-        # Position of elements with grid becouse you can show the labels later on
-        underline_license.grid(padx=5, pady=55)
-        label_clampy_interface_support.grid(padx=15, pady=50)
-        label_copyright.grid(padx=0, pady=0)
-        label_all_licese.grid(padx=15, pady=0)
+        # Destroy underline of support
+        underline_program.place_forget()
+        # Position of elements in the license
+        underline_license.place(x=100,y=55)
+        label_clampy_interface_support.place(x=5, y=105)
+        label_copyright.place(x=5, y=130)
+        label_all_licese.place(x=6, y=160)
+        label_see_license.place(x=75, y=280)
 
 
     # Label license
@@ -141,20 +152,21 @@ def open_support(event):
     license_interface_support.pack()
     license_interface_support.place(x=100, y=25)
     license_interface_support.bind("<Button-1>", support_license)
-    # ----------------------------
+    # ______________________________________
 
     # ----------------------------
     # Support Program
     # Function for support_program
     def support_program(event):
-        # Destroy underline license and all license
-        underline_license.grid_forget()
-        label_clampy_interface_support.grid_forget()
-        label_clampy_interface_support.grid_forget()
-        label_copyright.grid_forget()
-        label_all_licese.grid_forget()
-        # Underline of label program
-
+        # Hide underline license and all license of license
+        underline_license.place_forget()
+        label_clampy_interface_support.place_forget()
+        label_clampy_interface_support.place_forget()
+        label_copyright.place_forget()
+        label_all_licese.place_forget()
+        label_see_license.place_forget()
+        # Position of elements in the program
+        underline_program.place(x=200, y=55)
 
     # Label program
     program_interface_support=Label(interface_support, text="Program", bg="#2A0A1B", fg="#FF0000", font="Helveltica 15 italic", cursor="hand2"    )
@@ -165,8 +177,6 @@ def open_support(event):
     # Create underline program
     underline_program=Canvas(interface_support, width=85, height=1, bg="white")
     underline_program.pack()
-
-
 
     # Hide all labels and buttons
     underline_program.forget()
@@ -189,9 +199,8 @@ def open_support(event):
     main_menu_interface_support.pack()
     main_menu_interface_support.place(x=780, y=15)
 
-    # Calling a function for the first time open
+    # Calling a function for the open support interface
     support_license(event)
-
     interface_support.mainloop()
 
 # Finish support
@@ -221,6 +230,11 @@ def theme_white(event):
     label_github.config(bg="#d6d6c2", fg="black")
     label_support.config(bg="#d6d6c2", fg="black")
     label_theme.config(bg="#d6d6c2", fg="black")
+    intensive_scan_title.config(bg="#d6d6c2", fg="black")
+    fast_scan_title.config(bg="#d6d6c2", fg="black")
+    specific_scan_title.config(bg="#d6d6c2", fg="black")
+    adblock_title.config(bg="#d6d6c2", fg="black")
+    quarantine_title.config(bg="#d6d6c2", fg="black")
 
 def theme_purpule(event):
     # Change interface, label, and buttons colors
@@ -231,6 +245,11 @@ def theme_purpule(event):
     label_github.config(bg="#2A0A1B", fg="white")
     label_support.config(bg="#2A0A1B", fg="white")
     label_theme.config(bg="#2A0A1B", fg="white")
+    intensive_scan_title.config(bg="#2A0A1B", fg="white")
+    fast_scan_title.config(bg="#2A0A1B", fg="white")
+    specific_scan_title.config(bg="#2A0A1B", fg="white")
+    adblock_title.config(bg="#2A0A1B", fg="white")
+    quarantine_title.config(bg="#2A0A1B", fg="white")
 
 def theme_black(event):
     # Change interface, label, and buttons colors
@@ -241,6 +260,11 @@ def theme_black(event):
     label_github.config(bg="#262626", fg="white")
     label_support.config(bg="#262626", fg="white")
     label_theme.config(bg="#262626", fg="white")
+    intensive_scan_title.config(bg="#262626", fg="white")
+    fast_scan_title.config(bg="#262626", fg="white")
+    specific_scan_title.config(bg="#262626", fg="white")
+    adblock_title.config(bg="#262626", fg="white")
+    quarantine_title.config(bg="#262626", fg="white")
 
 # Label theme
 label_theme=Label(interface,
