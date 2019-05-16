@@ -232,6 +232,15 @@ top_line.place(x=0, y=70)
 # Scan buttons
 # --------------------
 # Intensive scan button
+intensive_scan_title = Label(interface,
+    text="Intensive scan",
+    font="Helvetica 12",
+    bg="#2A0A1B",
+    fg="White"
+    )
+intensive_scan_title.pack()
+intensive_scan_title.place(x=38, y=290)
+
 intensive_scan_button = Button(interface,
     text="Intensive Scan",
     fg="White",
@@ -242,9 +251,18 @@ intensive_scan_button = Button(interface,
     font="Helvetica"
     )
 intensive_scan_button.pack()
-intensive_scan_button.place(x=10, y=150)
+intensive_scan_button.place(x=10, y=135)
 
 # Fast scan button
+fast_scan_title = Label(interface,
+    text="Fast scan",
+    font="Helvetica 12",
+    bg="#2A0A1B",
+    fg="White"
+    )
+fast_scan_title.pack()
+fast_scan_title.place(x=228, y=290)
+
 fast_scan_button = Button(interface,
     text="Fast Scan",
     fg="White",
@@ -255,9 +273,18 @@ fast_scan_button = Button(interface,
     font="Helvetica"
     )
 fast_scan_button.pack()
-fast_scan_button.place(x=180, y=150)
+fast_scan_button.place(x=180, y=135)
 
 # Specific scan button
+specific_scan_title = Label(interface,
+    text="Specific scan",
+    font="Helvetica 12",
+    bg="#2A0A1B",
+    fg="White"
+    )
+specific_scan_title.pack()
+specific_scan_title.place(x=383, y=290)
+
 specific_scan_button = Button(interface,
     text="Specific Scan",
     fg="White",
@@ -268,7 +295,7 @@ specific_scan_button = Button(interface,
     font="Helvetica"
     )
 specific_scan_button.pack()
-specific_scan_button.place(x=350, y=150)
+specific_scan_button.place(x=350, y=135)
 
 # ---------------------------------------------------
 #                   Adblock
@@ -286,7 +313,7 @@ def install_adblock():
     windowHeight = interface_adblock.winfo_reqheight()
     positionRight = int(interface_adblock.winfo_screenwidth()/2 - windowWidth)
     positionDown = int(interface_adblock.winfo_screenheight()/2 - windowHeight)
-    interface_adblock.geometry("850x400+%s+%s"%(positionRight,positionDown))
+    interface_adblock.geometry("850x600+%s+%s"%(positionRight,positionDown))
 
     # Logo
     logo_interface_adblock = ImageTk.PhotoImage(file="img/logo.png")
@@ -313,7 +340,6 @@ def install_adblock():
     go_back = ImageTk.PhotoImage(file="img/go-back.png")
     main_menu_interface_adblock = Button(interface_adblock,
     image=go_back,
-    # foreground="#2A0A1B",
     cursor="hand2",
     background="#2A0A1B",
     highlightbackground="#2A0A1B",
@@ -322,12 +348,132 @@ def install_adblock():
     main_menu_interface_adblock.pack()
     main_menu_interface_adblock.place(x=780, y=15)
 
+    # line
+    line_interface_adblock = Canvas(interface_adblock,
+    width=850,
+    height=1.5,
+    bg="white"
+    )
+    line_interface_adblock.pack()
+    line_interface_adblock.create_line(0, 0, 200, 200, fill="white")
+    line_interface_adblock.place(x=0, y=70)
+
+    # Label text title
+    text_interface_adblock = Label(interface_adblock,
+    text="Install Adblock Plus",
+    font="Helvetica 20",
+    fg="white",
+    bg="#2A0A1B"
+    )
+    text_interface_adblock.pack()
+    text_interface_adblock.place(x=310, y=15)
+
+    # Label text select:
+    text_interface_adblock_select = Label(interface_adblock,
+    text="Select your browser: ",
+    font="Helvetica 20",
+    fg="white",
+    bg="#2A0A1B"
+    )
+    text_interface_adblock_select.pack()
+    text_interface_adblock_select.place(x=15, y=100)
+
+
+    # Adblock for firefox
+    def adblock_link_firefox():
+        webbrowser.open_new("https://eyeo.to/adblockplus/firefox_install/")
+
+    firefox_logo = ImageTk.PhotoImage(file="img/firefox-logo.png")
+    adblock_firefox = Button(interface_adblock,
+    image=firefox_logo,
+    width=150,
+    height=150,
+    command=adblock_link_firefox,
+    background="#2A0A1B"
+    )
+
+    adblock_firefox.pack()
+    adblock_firefox.place(x=15, y=180)
+
+    # Adblock for Chrome
+    def adblock_link_chrome():
+        webbrowser.open_new("https://chrome.google.com/webstore/detail/adblock-plus-free-ad-bloc/cfhdojbkjhnklbpkdaibdccddilifddb")
+
+    chrome_logo = ImageTk.PhotoImage(file="img/chrome-logo.png")
+    adblock_chrome = Button(interface_adblock,
+    image=chrome_logo,
+    width=150,
+    height=150,
+    command=adblock_link_chrome,
+    background="#2A0A1B"
+    )
+
+    adblock_chrome.pack()
+    adblock_chrome.place(x=180, y=180)
+
+    # Adblock for Internet Explorer
+    def adblock_link_ie():
+        webbrowser.open_new("https://eyeo.to/adblockplus/ie_install/")
+
+    ie_logo = ImageTk.PhotoImage(file="img/ie-logo.png")
+    adblock_ie = Button(interface_adblock,
+    image=ie_logo,
+    width=150,
+    height=150,
+    command=adblock_link_ie,
+    background="#2A0A1B"
+    )
+
+    adblock_ie.pack()
+    adblock_ie.place(x=345, y=180)
+
+    # Adblock Opera
+    def adblock_link_op():
+        webbrowser.open_new("https://addons.opera.com/en/extensions/details/adblock-plus/")
+
+    op_logo = ImageTk.PhotoImage(file="img/op-logo.png")
+    adblock_op = Button(interface_adblock,
+    image=op_logo,
+    width=150,
+    height=150,
+    command=adblock_link_op,
+    background="#2A0A1B"
+    )
+
+    adblock_op.pack()
+    adblock_op.place(x=510, y=180)
+
+    # Adblock Safari
+    def adblock_link_safari():
+        webbrowser.open_new("https://itunes.apple.com/us/app/adblock-plus-for-safari/id1432731683?ls=1&mt=8")
+
+    safari_logo = ImageTk.PhotoImage(file="img/safari-logo.png")
+    adblock_safari = Button(interface_adblock,
+    image=safari_logo,
+    width="150",
+    height="150",
+    command=adblock_link_safari,
+    background="#2A0A1B"
+    )
+
+    adblock_safari.pack()
+    adblock_safari.place(x=675, y=180)
+
+
     interface_adblock.mainloop()
 
-#  Finish adblock
-# -------------------------------------------------
+
 
 # Ablock button
+adblock_title = Label(interface,
+    text="Adblock Plus",
+    font="Helvetica 12",
+    bg="#2A0A1B",
+    fg="White"
+    )
+adblock_title.pack()
+adblock_title.place(x=548, y=290)
+
 adblock_image = ImageTk.PhotoImage(file="img/adblock.png")
 adblock_button = Button(interface,
     image=adblock_image,
@@ -339,7 +485,44 @@ adblock_button = Button(interface,
     command=install_adblock
     )
 adblock_button.pack()
-adblock_button.place(x=520, y=150)
+adblock_button.place(x=520, y=135)
+
+#  Finish adblock
+# -------------------------------------------------
+
+# Quarantine button
+quarantine_title = Label(interface,
+    text="Quarantine",
+    font="Helvetica 12",
+    bg="#2A0A1B",
+    fg="White"
+    )
+quarantine_title.pack()
+quarantine_title.place(x=718, y=290)
+
+quarantine_image = ImageTk.PhotoImage(file="img/quarantine-logo.png")
+quarantine_button = Button(interface,
+    image=quarantine_image,
+    bg="Red",
+    width="150",
+    height="151.5",
+    cursor="hand2",
+    )
+quarantine_button.pack()
+quarantine_button.place(x=685, y=135)
+
+# You are protected
+protected_button = Label(interface,
+    text="You are protected",
+    fg="White",
+    bg="Green",
+    width="103",
+    height="2",
+    )
+protected_button.pack()
+protected_button.place(x=10, y=85)
+
+
 
 
 interface.mainloop()
