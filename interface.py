@@ -119,13 +119,14 @@ def open_support(event):
     label_copyright=Label(interface_support, bg="#2A0A1B", fg="white", font="Helvetica 11 italic", text="Copyright © 2019 Juan Miguel Segura Fernandez and Alejandro Mallén Gómez.")
     # Label_all_licese.
     label_copyright.pack()
-    label_all_licese=Label(interface_support, bg="#2A0A1B", fg="white", font="Helvetica 11", justify=LEFT, text="This program is free software: you can redistribute it and/or modify.\nIt under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the\nLicense, or at your option, any later version.\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY\nwithout even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU \nGeneral Public License for more details. You should have received a copy of the GNU General Public License along with this\nprogram.\nIf not, see")
+    label_all_licese=Label(interface_support, bg="#2A0A1B", fg="white", font="Helvetica 11", justify=LEFT, text="This program is free software: you can redistribute it and/or modify.\nIt under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the\nLicense, or at your option, any later version.\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY\nwithout even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU \nGeneral Public License for more details. You should have received a copy of the GNU General Public License along with this\nprogram.")
     label_all_licese.pack()
 
+    # This function open de browser and go to page web license gnu
     def goto_pageweb_license(event):
         webbrowser.open_new_tab("https://www.gnu.org/licenses/gpl-3.0.en.html")
     # Label for see license ( go to license page web )
-    label_see_license=Label(interface_support, text="<http://www.gnu.org/licenses/>", bg="#2A0A1B", fg="white", font="Helvetica 11 underline", cursor="hand2")
+    label_see_license=Label(interface_support, text="If not, see <http://www.gnu.org/licenses/>", bg="#2A0A1B", fg="white", font="Helvetica 11 underline", cursor="hand2")
     label_see_license.pack()
     label_see_license.bind("<Button-1>", goto_pageweb_license)
 
@@ -144,7 +145,7 @@ def open_support(event):
         label_clampy_interface_support.place(x=5, y=105)
         label_copyright.place(x=5, y=130)
         label_all_licese.place(x=6, y=160)
-        label_see_license.place(x=75, y=280)
+        label_see_license.place(x=5, y=285)
 
 
     # Label license
@@ -195,7 +196,7 @@ def open_support(event):
 
     # Image an button for back to menu
     go_back = ImageTk.PhotoImage(file="img/go-back.png")
-    main_menu_interface_support = Button(interface_support, image=go_back, cursor="hand2", background="#2A0A1B", highlightbackground="#2A0A1B", command=return_main_menu)
+    main_menu_interface_support = Button(interface_support, image=go_back, cursor="hand2", background="#2A0A1B", highlightbackground="#2A0A1B", activebackground="#2A0A1B", command=return_main_menu)
     main_menu_interface_support.pack()
     main_menu_interface_support.place(x=780, y=15)
 
@@ -323,13 +324,15 @@ intensive_scan_title.place(x=38, y=290)
 
 intensive_scan_button = Button(interface,
     text="Intensive Scan",
-    fg="White",
-    bg="Red",
+    fg="white",
+    bg="red",
     width="15",
     height="6",
     cursor="hand2",
-    font="Helvetica"
+    font="Helvetica",
+    activebackground="red"
     )
+
 intensive_scan_button.pack()
 intensive_scan_button.place(x=10, y=135)
 
@@ -422,8 +425,9 @@ def install_adblock():
     image=go_back,
     cursor="hand2",
     background="#2A0A1B",
-    highlightbackground="#2A0A1B",
-    command=return_main_menu
+    activebackground="#2A0A1B",
+    command=return_main_menu,
+    highlightbackground="#2A0A1B"
     )
     main_menu_interface_adblock.pack()
     main_menu_interface_adblock.place(x=780, y=15)
@@ -557,12 +561,13 @@ adblock_title.place(x=548, y=290)
 adblock_image = ImageTk.PhotoImage(file="img/adblock.png")
 adblock_button = Button(interface,
     image=adblock_image,
-    fg="White",
-    bg="Red",
+    fg="white",
+    bg="#2A0A1B",
     width="150",
     height="151.5",
     cursor="hand2",
-    command=install_adblock
+    command=install_adblock,
+    activebackground="#2A0A1B"
     )
 adblock_button.pack()
 adblock_button.place(x=520, y=135)
@@ -580,13 +585,18 @@ quarantine_title = Label(interface,
 quarantine_title.pack()
 quarantine_title.place(x=718, y=290)
 
+
 quarantine_image = ImageTk.PhotoImage(file="img/quarantine-logo.png")
+
 quarantine_button = Button(interface,
     image=quarantine_image,
-    bg="Red",
+    bg="#2A0A1B",
     width="150",
     height="151.5",
     cursor="hand2",
+    activebackground="#2A0A1B",
+    text="Adblock Plus",
+    compound=TOP
     )
 quarantine_button.pack()
 quarantine_button.place(x=685, y=135)
