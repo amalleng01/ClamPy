@@ -61,7 +61,7 @@ label_web.bind("<Button-1>", open_web_page)
 # Github
 # Github function
 def open_git_hub(event):
-    webbrowser.open_new("https://github.com/Cisco-Talos/clamav-devel")
+    webbrowser.open_new("https://github.com/amalleng01/ClamPy")
 
 # Github link top label
 label_github = Label(interface,
@@ -101,15 +101,77 @@ def open_support(event):
     label_logo_interface_support.pack()
     label_logo_interface_support.place(x=3, y=3)
 
+    # Top line
+    top_line = Canvas(interface_support, width=850, height=1.5, bg="white")
+    top_line.pack()
+    top_line.place(x=0, y=90)
+
+    # -------------------
+    # Support License
+    # Underline license
+    underline_license = Canvas(interface_support, width=75, height=1, bg="white")
+    underline_license.pack()
+    # underline_license.grid(padx=100, pady=55)
+
+    # Label of all license
+    label_clampy_interface_support=Label(interface_support, text="ClamPy", font="Helvetica 13", bg="#2A0A1B", fg="#FF0000")
+    label_clampy_interface_support.pack()
+    label_copyright=Label(interface_support, bg="#2A0A1B", fg="white", font="Helvetica 11 italic", text="Copyright © 2019 Juan Miguel Segura Fernandez and Alejandro Mallén Gómez.")
+    # Label_all_licese.
+    label_copyright.pack()
+    label_all_licese=Label(interface_support, bg="#2A0A1B", fg="white", font="Helvetica 11", justify=LEFT, text="This program is free software: you can redistribute it and/or modify.\nIt under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the\nLicense, or at your option, any later version.\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY\nwithout even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU \nGeneral Public License for more details. You should have received a copy of the GNU General Public License along with this\n program. If not, see <http://www.gnu.org/licenses/>.")
+    label_all_licese.pack()
+
+    # Hide all labels and buttons with grid
+    label_clampy_interface_support.forget()
+    label_copyright.forget()
+    label_all_licese.forget()
+
+    # Function for support_license
+    def support_license(event):
+        # Position of elements with grid becouse you can show the labels later on
+        underline_license.grid(padx=5, pady=55)
+        label_clampy_interface_support.grid(padx=15, pady=50)
+        label_copyright.grid(padx=0, pady=0)
+        label_all_licese.grid(padx=15, pady=0)
+
+
     # Label license
-    license_interface_support=Label(interface_support, text="License", bg="#2A0A1B", fg="#FF0000", font="Helveltica 15 italic", cursor="hand2"    )
+    license_interface_support=Label(interface_support, text="License", bg="#2A0A1B", fg="#FF0000", font="Helveltica 15 italic", cursor="hand2")
     license_interface_support.pack()
     license_interface_support.place(x=100, y=25)
+    license_interface_support.bind("<Button-1>", support_license)
+    # ----------------------------
+
+    # ----------------------------
+    # Support Program
+    # Function for support_program
+    def support_program(event):
+        # Destroy underline license and all license
+        underline_license.grid_forget()
+        label_clampy_interface_support.grid_forget()
+        label_clampy_interface_support.grid_forget()
+        label_copyright.grid_forget()
+        label_all_licese.grid_forget()
+        # Underline of label program
+
 
     # Label program
     program_interface_support=Label(interface_support, text="Program", bg="#2A0A1B", fg="#FF0000", font="Helveltica 15 italic", cursor="hand2"    )
     program_interface_support.pack()
     program_interface_support.place(x=200, y=25)
+    program_interface_support.bind("<Button-1>", support_program )
+
+    # Create underline program
+    underline_program=Canvas(interface_support, width=85, height=1, bg="white")
+    underline_program.pack()
+
+
+
+    # Hide all labels and buttons
+    underline_program.forget()
+    # ----------------------------------
+
 
     # Label contact
     contact_interface_support=Label(interface_support, text="Contact", bg="#2A0A1B", fg="#FF0000", font="Helveltica 15 italic", cursor="hand2"    )
@@ -123,18 +185,12 @@ def open_support(event):
 
     # Image an button for back to menu
     go_back = ImageTk.PhotoImage(file="img/go-back.png")
-    main_menu_interface_support = Button(interface_support,
-    image=go_back,
-    # foreground="#2A0A1B",
-    cursor="hand2",
-    background="#2A0A1B",
-    highlightbackground="#2A0A1B",
-    command=return_main_menu
-    )
+    main_menu_interface_support = Button(interface_support, image=go_back, cursor="hand2", background="#2A0A1B", highlightbackground="#2A0A1B", command=return_main_menu)
     main_menu_interface_support.pack()
     main_menu_interface_support.place(x=780, y=15)
 
-
+    # Calling a function for the first time open
+    support_license(event)
 
     interface_support.mainloop()
 
