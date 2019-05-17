@@ -322,15 +322,16 @@ intensive_scan_title = Label(interface,
 intensive_scan_title.pack()
 intensive_scan_title.place(x=38, y=290)
 
+img_intensive_img = ImageTk.PhotoImage(file="img/intensive.png")
 intensive_scan_button = Button(interface,
-    text="Intensive Scan",
+    image=img_intensive_img,
+    activebackground="#2A0A1B",
     fg="white",
-    bg="red",
-    width="15",
-    height="6",
+    bg="#2A0A1B",
+    width="150",
+    height="150",
     cursor="hand2",
     font="Helvetica",
-    activebackground="red"
     )
 
 intensive_scan_button.pack()
@@ -346,14 +347,15 @@ fast_scan_title = Label(interface,
 fast_scan_title.pack()
 fast_scan_title.place(x=228, y=290)
 
+fast_img = ImageTk.PhotoImage(file="img/fast.png")
 fast_scan_button = Button(interface,
-    text="Fast Scan",
-    fg="White",
-    bg="Red",
-    width="15",
-    height="6",
+    image=fast_img,
+    activebackground="#2A0A1B",
+    fg="white",
+    bg="#2A0A1B",
+    width="150",
+    height="150",
     cursor="hand2",
-    font="Helvetica"
     )
 fast_scan_button.pack()
 fast_scan_button.place(x=180, y=135)
@@ -368,14 +370,15 @@ specific_scan_title = Label(interface,
 specific_scan_title.pack()
 specific_scan_title.place(x=383, y=290)
 
+specific_img = ImageTk.PhotoImage(file="img/specific.png")
 specific_scan_button = Button(interface,
-    text="Specific Scan",
-    fg="White",
-    bg="Red",
-    width="15",
-    height="6",
+    image=specific_img,
+    activebackground="#2A0A1B",
+    fg="white",
+    bg="#2A0A1B",
+    width="150",
+    height="150",
     cursor="hand2",
-    font="Helvetica"
     )
 specific_scan_button.pack()
 specific_scan_button.place(x=350, y=135)
@@ -595,7 +598,6 @@ quarantine_button = Button(interface,
     height="151.5",
     cursor="hand2",
     activebackground="#2A0A1B",
-    text="Adblock Plus",
     compound=TOP
     )
 quarantine_button.pack()
