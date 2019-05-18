@@ -111,8 +111,6 @@ def open_support(event):
     # Underline license
     underline_license = Canvas(interface_support, width=75, height=1, bg="white")
     underline_license.pack()
-    # underline_license.grid(padx=100, pady=55)
-
     # Label of all license
     label_clampy_interface_support=Label(interface_support, text="ClamPy", font="Helvetica 13", bg="#2A0A1B", fg="#FF0000")
     label_clampy_interface_support.pack()
@@ -138,15 +136,19 @@ def open_support(event):
 
     # Function for support_license
     def support_license(event):
-        # Destroy underline of support
-        underline_program.place_forget()
+        # Destroy label of suppor program
+        label_que_es_program.place_forget()
+        label_que_es_explicacon_program.place_forget()
+        label_porque_antivirus_program.place_forget()
+        label_porque_antivirus_explicacion_program.place_forget()
+        label_imagen_open_source.place_forget()
+        label_imagen_clamav.place_forget()
         # Position of elements in the license
         underline_license.place(x=100,y=55)
         label_clampy_interface_support.place(x=5, y=105)
         label_copyright.place(x=5, y=130)
         label_all_licese.place(x=6, y=160)
         label_see_license.place(x=5, y=285)
-
 
     # Label license
     license_interface_support=Label(interface_support, text="License", bg="#2A0A1B", fg="#FF0000", font="Helveltica 15 italic", cursor="hand2")
@@ -157,17 +159,37 @@ def open_support(event):
 
     # ----------------------------
     # Support Program
+    # Labels in part or support
+    label_que_es_program=Label(interface_support, text="Que es ClamPy?", font="Helvetica 12 italic", bg="#2A0A1B", fg="white")
+    label_que_es_program.pack()
+    label_que_es_explicacon_program=Label(interface_support, font="Helvetica 11", bg="#2A0A1B", fg="white", justify=LEFT, text="- ClamPy es una interfaz para el antivirus Clamav. Tanto el propio antivirus, como la interfaz ClamPy, son completamente\n  Open Source y se puede contrtibuir con estos. ",)
+    label_que_es_explicacon_program.pack()
+    label_porque_antivirus_program=Label(interface_support, text="Por qué un antivirus?", font="Helvetica 12 italic", bg="#2A0A1B", fg="white")
+    label_porque_antivirus_program.pack()
+    label_porque_antivirus_explicacion_program=Label(interface_support, font="Helvetica 11", bg="#2A0A1B", fg="white", justify=LEFT, text="- Hemos decidido en cuntribuir creando una interfaz para el antivirus Open Source Clamav, porque creemos\n  que es necesario que exista un antivirus completamente libre y gratis al 100%.")
+    label_porque_antivirus_explicacion_program.pack()
+    imagen_open_source=ImageTk.PhotoImage(file="img/opensource.png")
+    label_imagen_open_source=Label(interface_support, image=imagen_open_source, bg="#2A0A1B")
+    label_imagen_open_source.pack()
+    imagen_clamav=ImageTk.PhotoImage(file="img/clamav_support_program.png")
+    label_imagen_clamav=Label(interface_support, image=imagen_clamav, bg="#2A0A1B")
+    label_imagen_clamav.pack()
+
     # Function for support_program
     def support_program(event):
         # Hide underline license and all license of license
-        underline_license.place_forget()
-        label_clampy_interface_support.place_forget()
-        label_clampy_interface_support.place_forget()
+        # underline_license.place_forget()
         label_copyright.place_forget()
         label_all_licese.place_forget()
         label_see_license.place_forget()
         # Position of elements in the program
-        underline_program.place(x=200, y=55)
+        underline_license.place(x=200, y=55)
+        label_que_es_program.place(x=5, y=130)
+        label_que_es_explicacon_program.place(x=5, y=155)
+        label_porque_antivirus_program.place(x=5, y=210)
+        label_porque_antivirus_explicacion_program.place(x=5, y=235)
+        label_imagen_open_source.place(x=690, y=280)
+        label_imagen_clamav.place(x=480, y=270)
 
     # Label program
     program_interface_support=Label(interface_support, text="Program", bg="#2A0A1B", fg="#FF0000", font="Helveltica 15 italic", cursor="hand2"    )
@@ -175,12 +197,13 @@ def open_support(event):
     program_interface_support.place(x=200, y=25)
     program_interface_support.bind("<Button-1>", support_program )
 
-    # Create underline program
-    underline_program=Canvas(interface_support, width=85, height=1, bg="white")
-    underline_program.pack()
-
     # Hide all labels and buttons
-    underline_program.forget()
+    label_que_es_program.forget()
+    label_que_es_explicacon_program.forget()
+    label_porque_antivirus_program.forget()
+    label_porque_antivirus_explicacion_program.forget()
+    label_imagen_open_source.forget()
+    label_imagen_clamav.forget()
     # ----------------------------------
 
 
