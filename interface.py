@@ -106,20 +106,19 @@ def open_support(event):
     top_line.pack()
     top_line.place(x=0, y=90)
 
-    # --------------------------------------
+    # ______________________________________
     # Support License
-    # Underline license
-    underline_license = Canvas(interface_support, width=75, height=1, bg="white")
-    underline_license.pack()
-    # Label of all license
+    # Underline support
+    underline_support = Canvas(interface_support, width=75, height=1, bg="white")
+    underline_support.pack()
+
+    # All label into license
     label_clampy_interface_support=Label(interface_support, text="ClamPy", font="Helvetica 13", bg="#2A0A1B", fg="#FF0000")
     label_clampy_interface_support.pack()
     label_copyright=Label(interface_support, bg="#2A0A1B", fg="white", font="Helvetica 11 italic", text="Copyright © 2019 Juan Miguel Segura Fernandez and Alejandro Mallén Gómez.")
-    # Label_all_licese.
     label_copyright.pack()
     label_all_licese=Label(interface_support, bg="#2A0A1B", fg="white", font="Helvetica 11", justify=LEFT, text="This program is free software: you can redistribute it and/or modify.\nIt under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the\nLicense, or at your option, any later version.\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY\nwithout even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU \nGeneral Public License for more details. You should have received a copy of the GNU General Public License along with this\nprogram.")
     label_all_licese.pack()
-
     # This function open de browser and go to page web license gnu
     def goto_pageweb_license(event):
         webbrowser.open_new_tab("https://www.gnu.org/licenses/gpl-3.0.en.html")
@@ -128,23 +127,22 @@ def open_support(event):
     label_see_license.pack()
     label_see_license.bind("<Button-1>", goto_pageweb_license)
 
-    # Hide all labels and buttons with grid
-    label_clampy_interface_support.place_forget()
-    label_copyright.place_forget()
-    label_all_licese.place_forget()
-    label_see_license.place_forget()
-
     # Function for support_license
     def support_license(event):
-        # Destroy label of suppor program
+        # Hide all label of program
         label_que_es_program.place_forget()
         label_que_es_explicacon_program.place_forget()
         label_porque_antivirus_program.place_forget()
         label_porque_antivirus_explicacion_program.place_forget()
         label_imagen_open_source.place_forget()
         label_imagen_clamav.place_forget()
+        # Hide all labels of contact
+        label_nosotros_contact.place_forget()
+        label_nosotros_explicacion_contact.place_forget()
+        label_contactar_connosotros_contact.place_forget()
+        label_contactar_connosotros_explicacion.place_forget()
         # Position of elements in the license
-        underline_license.place(x=100,y=55)
+        underline_support.place(x=100,y=55)
         label_clampy_interface_support.place(x=5, y=105)
         label_copyright.place(x=5, y=130)
         label_all_licese.place(x=6, y=160)
@@ -155,10 +153,17 @@ def open_support(event):
     license_interface_support.pack()
     license_interface_support.place(x=100, y=25)
     license_interface_support.bind("<Button-1>", support_license)
+
+    # Hide all labels and buttons with grid
+    label_clampy_interface_support.place_forget()
+    label_copyright.place_forget()
+    label_all_licese.place_forget()
+    label_see_license.place_forget()
     # ______________________________________
 
     # ----------------------------
     # Support Program
+    # ----------------------------
     # Labels in part or support
     label_que_es_program=Label(interface_support, text="Que es ClamPy?", font="Helvetica 12 italic", bg="#2A0A1B", fg="white")
     label_que_es_program.pack()
@@ -177,13 +182,17 @@ def open_support(event):
 
     # Function for support_program
     def support_program(event):
-        # Hide underline license and all license of license
-        # underline_license.place_forget()
+        # Hide all labels of license
         label_copyright.place_forget()
         label_all_licese.place_forget()
         label_see_license.place_forget()
+        # Hide all labels of contact
+        label_nosotros_contact.place_forget()
+        label_nosotros_explicacion_contact.place_forget()
+        label_contactar_connosotros_contact.place_forget()
+        label_contactar_connosotros_explicacion.place_forget()
         # Position of elements in the program
-        underline_license.place(x=200, y=55)
+        underline_support.place(x=200, y=55)
         label_que_es_program.place(x=5, y=130)
         label_que_es_explicacon_program.place(x=5, y=155)
         label_porque_antivirus_program.place(x=5, y=210)
@@ -206,11 +215,50 @@ def open_support(event):
     label_imagen_clamav.forget()
     # ----------------------------------
 
+    # _________________________________
+    # Support Contact
+    # _________________________________
+    # All label into contact
+    label_nosotros_contact=Label(interface_support, text="Sobre nosotros:", font="Helvetica 12 italic", bg="#2A0A1B", fg="white")
+    label_nosotros_contact.pack()
+    label_nosotros_explicacion_contact=Label(interface_support, font="Helvetica 11", bg="#2A0A1B", justify=LEFT, fg="white", text=" - Somos Juan Miguel Segura Fernandez y Alejandro Mallén Gomez, dos alumnos de SMX ( Sistemas Microinformáticos y\n   Redes ) de Grado Medio. Nos gusta programar y nos gusta el software libre, por ello hemos decidido iniciar este pequeño\n   proyecto.")
+    label_nosotros_explicacion_contact.pack()
+    label_contactar_connosotros_contact=Label(interface_support, text="Contacto:", font="Helvetica 12 italic", bg="#2A0A1B", fg="white")
+    label_contactar_connosotros_contact.pack()
+    label_contactar_connosotros_explicacion=Label(interface_support, font="Helvetica 11", bg="#2A0A1B", fg="white", justify=LEFT, text=" - Correo de Juanmi: jusefer2@hotmail.es.\n - Correo de Alejandro: alejandromallengomez@gmail.com")
+    label_contactar_connosotros_explicacion.pack()
+
+    # Function of support contact
+    def support_contact(event):
+        # Hide all elements of license
+        label_copyright.place_forget()
+        label_all_licese.place_forget()
+        label_see_license.place_forget()
+        # Hide all elements support
+        label_que_es_program.place_forget()
+        label_que_es_explicacon_program.place_forget()
+        label_porque_antivirus_program.place_forget()
+        label_porque_antivirus_explicacion_program.place_forget()
+        label_imagen_open_source.place_forget()
+        label_imagen_clamav.place_forget()
+        # Position of elements in the contact
+        underline_support.place(x=300, y=55)
+        label_nosotros_contact.place(x=5, y=130)
+        label_nosotros_explicacion_contact.place(x=5, y=155)
+        label_contactar_connosotros_contact.place(x=5, y=220)
+        label_contactar_connosotros_explicacion.place(x=5, y=245)
 
     # Label contact
     contact_interface_support=Label(interface_support, text="Contact", bg="#2A0A1B", fg="#FF0000", font="Helveltica 15 italic", cursor="hand2"    )
     contact_interface_support.pack()
     contact_interface_support.place(x=300, y=25)
+    contact_interface_support.bind("<Button-1>", support_contact)
+    # Hide all label in contact
+    label_nosotros_contact.forget()
+    label_nosotros_explicacion_contact.forget()
+    label_contactar_connosotros_contact.forget()
+    label_contactar_connosotros_explicacion.forget()
+    # _________________________________
 
     # Go to main menu function
     def return_main_menu():
