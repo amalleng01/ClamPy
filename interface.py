@@ -141,6 +141,8 @@ def open_support(event):
         label_nosotros_explicacion_contact.place_forget()
         label_contactar_connosotros_contact.place_forget()
         label_contactar_connosotros_explicacion.place_forget()
+        label_imagen_gitlab_contact_juanmi.place_forget()
+        label_imagen_gitlab_contact_alejandro.place_forget()
         # Position of elements in the license
         underline_support.place(x=100,y=55)
         label_clampy_interface_support.place(x=5, y=105)
@@ -171,7 +173,7 @@ def open_support(event):
     label_que_es_explicacon_program.pack()
     label_porque_antivirus_program=Label(interface_support, text="Por qué un antivirus?", font="Helvetica 12 italic", bg="#2A0A1B", fg="white")
     label_porque_antivirus_program.pack()
-    label_porque_antivirus_explicacion_program=Label(interface_support, font="Helvetica 11", bg="#2A0A1B", fg="white", justify=LEFT, text="- Hemos decidido en cuntribuir creando una interfaz para el antivirus Open Source Clamav, porque creemos\n  que es necesario que exista un antivirus completamente libre y gratis al 100%.")
+    label_porque_antivirus_explicacion_program=Label(interface_support, font="Helvetica 11", bg="#2A0A1B", fg="white", justify=LEFT, text="- Hemos decidido en cuntribuir creando una interfaz para el antivirus Open Source Clamav, porque creemos\n  que es necesario que exista un antivirus completamente libre y gratis.")
     label_porque_antivirus_explicacion_program.pack()
     imagen_open_source=ImageTk.PhotoImage(file="img/opensource.png")
     label_imagen_open_source=Label(interface_support, image=imagen_open_source, bg="#2A0A1B")
@@ -191,6 +193,8 @@ def open_support(event):
         label_nosotros_explicacion_contact.place_forget()
         label_contactar_connosotros_contact.place_forget()
         label_contactar_connosotros_explicacion.place_forget()
+        label_imagen_gitlab_contact_juanmi.place_forget()
+        label_imagen_gitlab_contact_alejandro.place_forget()
         # Position of elements in the program
         underline_support.place(x=200, y=55)
         label_que_es_program.place(x=5, y=130)
@@ -227,6 +231,20 @@ def open_support(event):
     label_contactar_connosotros_contact.pack()
     label_contactar_connosotros_explicacion=Label(interface_support, font="Helvetica 11", bg="#2A0A1B", fg="white", justify=LEFT, text=" - Correo de Juanmi: jusefer2@hotmail.es.\n - Correo de Alejandro: alejandromallengomez@gmail.com")
     label_contactar_connosotros_explicacion.pack()
+    imagen_gitlab_contact=ImageTk.PhotoImage(file="img/gitlab.png")
+    # Funcion for open gitlab juanmi in browser
+    def open_gitlab_juanmi(event):
+        webbrowser.open_new("https://gitlab.com/jmseguraf01")
+    # Label, image and buttons of gitlab juanmi and alejandro
+    label_imagen_gitlab_contact_juanmi=Label(interface_support, image=imagen_gitlab_contact, bg="#2A0A1B", cursor="hand2", compound="top", text="Juanmi", fg="white", font="Helvetica 11 italic")
+    label_imagen_gitlab_contact_juanmi.pack()
+    label_imagen_gitlab_contact_juanmi.bind("<Button-1>", open_gitlab_juanmi)
+    # Funcion for open gitlab alejandro in browser
+    def open_gitlab_alejandro(event):
+        webbrowser.open_new("https://gitlab.com/amalleng01")
+    label_imagen_gitlab_contact_alejandro=Label(interface_support, image=imagen_gitlab_contact, bg="#2A0A1B", cursor="hand2", compound="top", text="Alejandro", fg="white", font="Helvetica 11 italic")
+    label_imagen_gitlab_contact_alejandro.pack()
+    label_imagen_gitlab_contact_alejandro.bind("<Button-1>", open_gitlab_alejandro)
 
     # Function of support contact
     def support_contact(event):
@@ -245,8 +263,10 @@ def open_support(event):
         underline_support.place(x=300, y=55)
         label_nosotros_contact.place(x=5, y=130)
         label_nosotros_explicacion_contact.place(x=5, y=155)
-        label_contactar_connosotros_contact.place(x=5, y=220)
-        label_contactar_connosotros_explicacion.place(x=5, y=245)
+        label_contactar_connosotros_contact.place(x=5, y=230)
+        label_contactar_connosotros_explicacion.place(x=5, y=255)
+        label_imagen_gitlab_contact_juanmi.place(x=50, y=310)
+        label_imagen_gitlab_contact_alejandro.place(x=150, y=310)
 
     # Label contact
     contact_interface_support=Label(interface_support, text="Contact", bg="#2A0A1B", fg="#FF0000", font="Helveltica 15 italic", cursor="hand2"    )
@@ -258,6 +278,8 @@ def open_support(event):
     label_nosotros_explicacion_contact.forget()
     label_contactar_connosotros_contact.forget()
     label_contactar_connosotros_explicacion.forget()
+    label_imagen_gitlab_contact_juanmi.forget()
+    label_imagen_gitlab_contact_alejandro.forget()
     # _________________________________
 
     # Go to main menu function
