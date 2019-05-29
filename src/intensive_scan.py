@@ -3,7 +3,8 @@
 
 from Tkinter import *
 from PIL import Image, ImageTk
-import os
+import os, commands, time
+from tkSimpleDialog import askstring
 
 # Create a inteface
 interface=Tk()
@@ -70,6 +71,10 @@ main_menu_interface_adblock.place(x=780, y=15)
 # Function for start scan
 def start_scan():
     button_start.destroy()
+    # Enter a root password and this, save in a variable
+    root_password=askstring("Root", "Enter root password:")
+    passwd_correct=commands.getoutput("echo "+root_password+" | sudo -S sudo -s")
+
     # Label refresh database...
     label_refresh_database=Label(interface, text="Refreshing database...", font="Helvetica 14", bg="#2A0A1B", fg="white")
     label_refresh_database.pack()
@@ -84,9 +89,9 @@ def start_scan():
     os.system("sudo systemctl start clamav-freshclam.service")
     canvas.create_text(7,150, text="Start scan...", fill="green", font="Helvetica 14", anchor=NW)
     # Subprocess
-    import subprocess
-    starting_scan=subprocess.Popen("sudo clamscan -r /").communicate()
-    canvas.create_text(7,170, text=starting_scan_output, fill="white", font="Helvetica 13", anchor=NW)
+    # time.sleep(5)
+    # starting_scan=commands.getoutput("sudo clamscan -r /")
+    # canvas.create_text(7,170, text=starting_scan_output, fill="white", font="Helvetica 13", anchor=NW)
 
 
 # -----------------------------------
